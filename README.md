@@ -96,16 +96,29 @@ Default canonical URL is `https://launchaiproduct.com`. GitHub Actions sets `NEX
 
 ## Git — first push
 
+**Do not copy placeholder text literally.** Use your real GitHub username and the exact repository name you created.
+
+1. On [github.com/new](https://github.com/new), create an empty repository (e.g. name: `launchaiproduct-com`). Do **not** add a README if you already have code locally.
+2. On the new repo page, click the green **Code** button and copy the HTTPS URL. It looks like:
+   - `https://github.com/YourActualUsername/launchaiproduct-com.git`
+3. In your project folder (if you already ran `git init` and committed):
+
 ```bash
-git init
-git add .
-git commit -m "Initial commit: LaunchAIProduct marketing site"
+git remote remove origin
+git remote add origin https://github.com/YourActualUsername/launchaiproduct-com.git
 git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
 git push -u origin main
 ```
 
-Replace `YOUR_USERNAME` and `YOUR_REPO` (e.g. `launchaiproduct-com`).
+Replace `YourActualUsername` with **your** GitHub username (profile URL is `github.com/ThatName`).
+
+If you never added a bad remote, skip `git remote remove origin` and only run `git remote add origin ...` once.
+
+First-time checklist:
+
+- Repo **exists** on GitHub before you push (otherwise: `repository not found`).
+- URL uses **your** account name, not `YOUR_USER` or `YOUR_USERNAME`.
+- You are logged in (`git push` may prompt for a [personal access token](https://github.com/settings/tokens) if HTTPS password auth is disabled).
 
 ## Placeholders to replace manually
 
@@ -126,3 +139,4 @@ Optional content updates:
 ---
 
 Business copy and structure follow `instruction.md`.
+"# launchaiproduct-com" 
