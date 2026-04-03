@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #030f0f;
+  --surface: #03624c;
+  --accent: #00df82;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-brand-bg text-zinc-100 antialiased;
+}
+
+::selection {
+  background-color: rgba(0, 223, 130, 0.25);
+  color: #f4f4f5;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
