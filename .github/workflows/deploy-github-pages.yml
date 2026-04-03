@@ -1,4 +1,14 @@
-# Deploy static Next.js export to GitHub Pages (branch: gh-pages via Actions artifact)
+# Deploy static Next.js export to GitHub Pages
+#
+# Custom domain at ROOT (e.g. https://launchaiproduct.com/):
+#   Leave NEXT_PUBLIC_BASE_PATH empty. If assets 404 under /repo/_next/, you were
+#   building with a subpath — custom domains are served from /, not /repo-name/.
+#
+# GitHub.io project URL only (https://user.github.io/repo-name/):
+#   Set repo variable NEXT_PUBLIC_BASE_PATH = /repo-name (with leading slash)
+#   and NEXT_PUBLIC_SITE_URL = https://user.github.io/repo-name
+#
+# Configure variables: Settings → Secrets and variables → Actions → Variables
 name: Deploy to GitHub Pages
 
 on:
@@ -33,9 +43,10 @@ jobs:
       - name: Build static site
         run: npm run build
         env:
-          # Project site: https://<user>.github.io/<repo>/
-          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
-          NEXT_PUBLIC_SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+          # Empty = assets at https://your-domain.com/_next/... (required for custom domains)
+          NEXT_PUBLIC_BASE_PATH: ${{ vars.NEXT_PUBLIC_BASE_PATH }}
+          # Defaults to launchaiproduct.com via lib/site.ts if unset; override for github.io
+          NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

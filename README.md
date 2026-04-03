@@ -82,9 +82,13 @@ npx serve out
 2. Push this project (see [Git — first push](#git--first-push) below).
 3. In the repo: **Settings → Pages → Build and deployment → Source:** choose **GitHub Actions**.
 4. The workflow **Deploy to GitHub Pages** runs on push to `main` (or `master`). First run may need you to approve workflow permissions once.
-5. Your site will be at `https://<username>.github.io/<repo>/`. The workflow sets `NEXT_PUBLIC_BASE_PATH` and `NEXT_PUBLIC_SITE_URL` automatically.
+5. **Custom domain** (e.g. `launchaiproduct.com`): add the domain under **Settings → Pages → Custom domain**. Do **not** set `NEXT_PUBLIC_BASE_PATH` — the site is served at the **domain root**, so assets must load from `https://yoursite.com/_next/...`, not `https://yoursite.com/repo-name/_next/...`. Optional repo **Variables**: `NEXT_PUBLIC_SITE_URL` = `https://launchaiproduct.com`.
 
-For a **custom domain** later, point DNS to GitHub Pages and set the custom domain in repo Settings → Pages; update `NEXT_PUBLIC_SITE_URL` / `lib/site.ts` if needed.
+6. **GitHub.io only** (`https://user.github.io/repo-name/`): set repository **Variables** → `NEXT_PUBLIC_BASE_PATH` = `/repo-name` (leading slash) and `NEXT_PUBLIC_SITE_URL` = `https://user.github.io/repo-name`.
+
+#### Fix: CSS/JS/icon 404 (`/repo/_next/...` not found on custom domain)
+
+That happens when the build used a **subpath** but your **custom domain** serves the site at **/**. Push a new build after clearing `NEXT_PUBLIC_BASE_PATH` (empty) in Actions variables, or use the updated workflow defaults.
 
 ### Vercel
 
@@ -92,7 +96,7 @@ Import the repo and deploy as a Next.js app. You may remove `output: 'export'` i
 
 ### `site.url` / SEO
 
-Default canonical URL is `https://launchaiproduct.com`. GitHub Actions sets `NEXT_PUBLIC_SITE_URL` during deploy so `robots.txt` / `sitemap.xml` match the GitHub Pages URL.
+Default canonical URL is `https://launchaiproduct.com` in `lib/site.ts`. Set repo variable `NEXT_PUBLIC_SITE_URL` in GitHub if your live URL differs.
 
 ## Git — first push
 
