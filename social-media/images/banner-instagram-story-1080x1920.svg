@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" fill="none">
+  <title>Instagram story template (1080×1920)</title>
+  <defs>
+    <linearGradient id="sbg" x1="540" y1="0" x2="540" y2="1920" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#030f0f"/>
+      <stop offset="1" stop-color="#0a1f1c"/>
+    </linearGradient>
+    <linearGradient id="saccent" x1="0" y1="800" x2="1080" y2="1200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#03624c" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#00df82" stop-opacity="0.12"/>
+    </linearGradient>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#sbg)"/>
+  <rect width="1080" height="1920" fill="url(#saccent)"/>
+  <text x="540" y="420" text-anchor="middle" fill="#00df82" font-family="Segoe UI, system-ui, sans-serif" font-size="36" font-weight="700" letter-spacing="0.15em">LAUNCHAIPRODUCT.COM</text>
+  <text x="540" y="520" text-anchor="middle" fill="#e4e4e7" font-family="Segoe UI, system-ui, sans-serif" font-size="56" font-weight="700">Real AI products.</text>
+  <text x="540" y="600" text-anchor="middle" fill="#a1a1aa" font-family="Segoe UI, system-ui, sans-serif" font-size="32">Strategy · Architecture · Build</text>
+  <rect x="240" y="1580" width="600" height="88" rx="12" fill="#00df82" fill-opacity="0.15" stroke="#00df82" stroke-width="2"/>
+  <text x="540" y="1638" text-anchor="middle" fill="#00df82" font-family="Segoe UI, system-ui, sans-serif" font-size="28" font-weight="600">Message on WhatsApp</text>
+</svg>

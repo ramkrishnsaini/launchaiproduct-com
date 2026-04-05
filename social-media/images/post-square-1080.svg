@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" fill="none">
+  <title>Instagram / LinkedIn square post canvas (1080×1080)</title>
+  <defs>
+    <linearGradient id="sq" x1="0" y1="0" x2="1080" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#030f0f"/>
+      <stop offset="1" stop-color="#0d2824"/>
+    </linearGradient>
+  </defs>
+  <rect width="1080" height="1080" fill="url(#sq)"/>
+  <rect x="80" y="80" width="920" height="920" rx="24" stroke="#03624c" stroke-width="2" fill="none" opacity="0.6"/>
+  <text x="540" y="200" text-anchor="middle" fill="#71717a" font-family="Segoe UI, system-ui, sans-serif" font-size="24">Replace with post copy — see BRAND_KIT.md</text>
+  <text x="540" y="980" text-anchor="middle" fill="#00df82" font-family="Segoe UI, system-ui, sans-serif" font-size="22" font-weight="600">LaunchAIProduct.com</text>
+</svg>

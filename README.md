@@ -36,6 +36,10 @@ launchaiproduct.com/
 ├── lib/
 │   └── site.ts              # Site name, URLs, nav links (edit for production)
 ├── public/                  # Static assets (add files as needed)
+├── social-media/
+│   ├── images/              # SVG logos, banners, post templates (social only)
+│   ├── BRAND_KIT.md         # Copy, posts, profiles, CTA strategy
+│   └── README.md
 ├── instruction.md           # Original brief
 ├── next.config.ts
 ├── package.json

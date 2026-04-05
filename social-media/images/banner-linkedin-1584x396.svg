@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1584 396" fill="none">
+  <title>LinkedIn banner template — LaunchAIProduct.com</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1584" y2="396" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#030f0f"/>
+      <stop offset="0.55" stop-color="#061a18"/>
+      <stop offset="1" stop-color="#03624c" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="1200" y1="0" x2="1584" y2="300" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00df82" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#00df82" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" stroke="#00df82" stroke-opacity="0.06" fill="none"/>
+    </pattern>
+  </defs>
+  <rect width="1584" height="396" fill="url(#bg)"/>
+  <rect width="1584" height="396" fill="url(#glow)"/>
+  <rect width="1584" height="396" fill="url(#grid)"/>
+  <text x="72" y="168" fill="#ffffff" font-family="Segoe UI, system-ui, sans-serif" font-size="52" font-weight="700">LaunchAIProduct.com</text>
+  <text x="72" y="230" fill="#00df82" font-family="Segoe UI, system-ui, sans-serif" font-size="28" font-weight="600">AI Product Strategy + Product Build &amp; Delivery</text>
+  <text x="72" y="288" fill="#a1a1aa" font-family="Segoe UI, system-ui, sans-serif" font-size="22">For developers who want a real AI product — not a wrapper.</text>
+  <text x="72" y="340" fill="#71717a" font-family="Segoe UI, system-ui, sans-serif" font-size="18">WhatsApp · Strategy calls · launchaiproduct.com</text>
+</svg>

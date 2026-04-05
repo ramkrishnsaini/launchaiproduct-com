@@ -2,7 +2,8 @@ import { ImageResponse } from "next/og";
 
 export const dynamic = "force-static";
 
-export const alt = "LaunchAIProduct.com — AI product strategy + product build & delivery";
+export const alt =
+  "Build Real AI Products with Deep AI Architecture — AI strategy, RAG, agentic systems, inference, owned infrastructure";
 
 export const size = {
   width: 1200,
@@ -50,25 +51,26 @@ export default function OpenGraphImage() {
         </div>
         <div
           style={{
-            fontSize: 56,
+            fontSize: 52,
             fontWeight: 700,
             color: "white",
-            lineHeight: 1.1,
-            maxWidth: 900,
+            lineHeight: 1.12,
+            maxWidth: 980,
           }}
         >
-          Idea → architecture → build → real product
+          Build Real AI Products with Deep AI Architecture
         </div>
         <div
           style={{
-            marginTop: 24,
-            fontSize: 26,
+            marginTop: 28,
+            fontSize: 24,
             color: "#a1a1aa",
-            maxWidth: 800,
-            lineHeight: 1.4,
+            maxWidth: 920,
+            lineHeight: 1.45,
           }}
         >
-          AI product strategy + product build & delivery. Not wrappers. Not generic automation.
+          AI product strategy, architecture, RAG, agentic systems, inference, orchestration, memory,
+          and build support for professionals shipping real AI products.
         </div>
       </div>
     ),

@@ -9,6 +9,7 @@ export const site = {
   name: "LaunchAIProduct.com",
   tagline: "Idea → architecture → build — AI product strategy + product build & delivery",
   url: siteUrl,
+  gtmId: "GTM-MLP9TTGQ",
   whatsappUrl:
     "https://wa.me/919022455556?text=Hi%2C%20I%27d%20like%20to%20connect%20about%20LaunchAIProduct.",
   bookingUrl:

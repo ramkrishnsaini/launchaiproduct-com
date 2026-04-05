@@ -45,7 +45,7 @@ export function Hero() {
           <div>
             <Reveal delay={40}>
               <h1 className="font-display text-4xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl">
-                Launch Your Own AI Product
+                Launch Your Own <span className="text-brand-accent">AI</span> Product
               </h1>
             </Reveal>
 

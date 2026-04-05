@@ -7,6 +7,7 @@ import { BudgetsSection } from "@/components/BudgetsSection";
 import { AudienceSection } from "@/components/AudienceSection";
 import { DifferentiatorSection } from "@/components/DifferentiatorSection";
 import { ServicesSection } from "@/components/ServicesSection";
+import { AIArchitectureDepthSection } from "@/components/AIArchitectureDepthSection";
 import { ProcessSection } from "@/components/ProcessSection";
 import { OutcomesSection } from "@/components/OutcomesSection";
 import { CaseStudySection } from "@/components/CaseStudySection";
@@ -27,6 +28,7 @@ export default function HomePage() {
         <AudienceSection />
         <DifferentiatorSection />
         <ServicesSection />
+        <AIArchitectureDepthSection />
         <ProcessSection />
         <OutcomesSection />
         <CaseStudySection />
