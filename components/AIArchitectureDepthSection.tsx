@@ -124,121 +124,77 @@ export function AIArchitectureDepthSection() {
 
       <div className="relative mx-auto w-full max-w-6xl">
       <Reveal>
-        <header className="relative w-full">
-            <div
-              className="pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-br from-brand-accent/25 via-brand-accent/5 to-transparent opacity-80 blur-sm"
-              aria-hidden
-            />
-            <div className="relative overflow-hidden rounded-2xl border border-brand-accent/25 bg-gradient-to-br from-brand-surface/45 to-brand-bg p-8 shadow-[0_0_80px_rgba(3,98,76,0.18),inset_0_1px_0_rgba(255,255,255,0.06)] sm:p-10">
-              <div
-                className="pointer-events-none absolute inset-0 bg-[length:40px_40px] bg-grid-pattern opacity-[0.12]"
-                aria-hidden
-              />
-              <div
-                className="pointer-events-none absolute -right-20 top-1/3 h-56 w-56 rounded-full bg-brand-accent/[0.07] blur-3xl"
-                aria-hidden
-              />
-              <div className="relative border-l-2 border-brand-accent pl-6 sm:pl-8">
-                <p className="font-mono text-[11px] font-medium uppercase tracking-[0.28em] text-brand-accent/90">
-                  Architecture
-                </p>
-                <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-[2.5rem] lg:leading-[1.15]">
-                  AI Architecture Depth
-                </h2>
-                <div className="mt-8 space-y-6 text-base leading-relaxed text-zinc-400 sm:text-lg">
-                  <p>
-                    We design AI systems as{" "}
-                    <span className="text-brand-accent">full architectures</span> — not as isolated model
-                    calls or thin UI layers.
-                  </p>
-                  <p>
-                    The focus is on building controllable, scalable, production-ready systems with clear
-                    boundaries between{" "}
-                    <span className="text-brand-accent">
-                      model reasoning, retrieval, orchestration, inference, memory, workflows, and product
-                      integration.
-                    </span>
-                  </p>
-                </div>
-                <p className="mt-8 border-t border-white/10 pt-8 font-display text-lg font-semibold leading-snug text-brand-accent sm:text-xl">
-                  This is architecture-level thinking for real AI products.
-                </p>
-              </div>
+        <header className="w-full">
+          <div className="rounded-2xl border border-brand-accent/25 bg-gradient-to-br from-brand-surface/40 to-brand-bg p-8 shadow-[0_0_80px_rgba(3,98,76,0.12)] sm:p-10">
+            <p className="font-mono text-[11px] font-medium uppercase tracking-[0.28em] text-brand-accent/90">
+              Architecture
+            </p>
+            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-[2.5rem] lg:leading-[1.15]">
+              AI Architecture Depth
+            </h2>
+            <div className="mt-8 space-y-6 text-base leading-relaxed text-zinc-400 sm:text-lg">
+              <p>
+                We design AI systems as{" "}
+                <span className="text-brand-accent">full architectures</span> — not as isolated model calls
+                or thin UI layers.
+              </p>
+              <p>
+                The focus is on building controllable, scalable, production-ready systems with clear
+                boundaries between{" "}
+                <span className="text-brand-accent">
+                  model reasoning, retrieval, orchestration, inference, memory, workflows, and product
+                  integration.
+                </span>
+              </p>
             </div>
-          </header>
+            <p className="mt-8 border-t border-white/10 pt-8 font-display text-lg font-semibold leading-snug text-brand-accent sm:text-xl">
+              This is architecture-level thinking for real AI products.
+            </p>
+          </div>
+        </header>
       </Reveal>
 
         <div className="mt-16 grid min-w-0 gap-6 sm:mt-20 md:grid-cols-2 xl:grid-cols-3 xl:gap-7">
           {cards.map((card, i) => (
             <Reveal key={card.title} delay={40 + (i % 6) * 35}>
-              <div className="relative h-full min-w-0">
-                <div
-                  className="pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-br from-brand-accent/25 via-brand-accent/5 to-transparent opacity-70 blur-sm"
-                  aria-hidden
-                />
-                <article className="group relative flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-brand-accent/25 bg-gradient-to-br from-brand-surface/45 to-brand-bg shadow-[0_0_80px_rgba(3,98,76,0.14),inset_0_1px_0_rgba(255,255,255,0.06)] transition duration-300 hover:border-brand-accent/40 hover:shadow-[0_0_80px_rgba(0,223,130,0.12)]">
-                  <div
-                    className="pointer-events-none absolute inset-0 bg-[length:40px_40px] bg-grid-pattern opacity-[0.08]"
-                    aria-hidden
-                  />
-                  <div
-                    className="pointer-events-none absolute -right-8 -top-8 h-36 w-36 rounded-full bg-brand-accent/[0.07] blur-3xl transition-opacity group-hover:opacity-100"
-                    aria-hidden
-                  />
-                  <div className="relative flex flex-1 flex-col p-6 sm:p-8">
-                    <div className="min-w-0 border-l-2 border-brand-accent pl-4 sm:pl-5">
-                      <h3 className="font-display text-base font-semibold leading-snug text-brand-accent sm:text-[17px]">
-                        {card.title}
-                      </h3>
-                      <ul className="mt-5 flex flex-1 flex-col">
-                        {card.items.map((item) => (
-                          <li
-                            key={item}
-                            className="border-t border-white/10 pt-3.5 text-[13px] leading-relaxed text-zinc-300 first:border-t-0 first:pt-0 sm:text-[14px] sm:leading-[1.65]"
-                          >
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </article>
-              </div>
+              <article className="flex h-full min-w-0 flex-col rounded-2xl border border-brand-accent/25 bg-gradient-to-br from-brand-surface/40 to-brand-bg p-8 shadow-[0_0_80px_rgba(3,98,76,0.12)] sm:p-10">
+                <h3 className="font-display text-base font-semibold leading-snug text-brand-accent sm:text-[17px]">
+                  {card.title}
+                </h3>
+                <ul className="mt-6 flex flex-1 flex-col gap-3">
+                  {card.items.map((item) => (
+                    <li
+                      key={item}
+                      className="flex gap-3 text-[13px] leading-relaxed text-zinc-300 sm:text-sm sm:leading-relaxed"
+                    >
+                      <span className="mt-0.5 shrink-0 text-brand-accent" aria-hidden>
+                        ✓
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </article>
             </Reveal>
           ))}
         </div>
 
         <Reveal delay={120}>
-          <aside className="relative mt-16 w-full sm:mt-20">
-            <div className="pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-br from-brand-accent/25 via-brand-accent/5 to-transparent opacity-80 blur-sm" aria-hidden />
-            <div className="relative overflow-hidden rounded-2xl border border-brand-accent/25 bg-gradient-to-br from-brand-surface/45 to-brand-bg p-8 shadow-[0_0_80px_rgba(3,98,76,0.18),inset_0_1px_0_rgba(255,255,255,0.06)] sm:p-10">
-              <div
-                className="pointer-events-none absolute inset-0 bg-[length:40px_40px] bg-grid-pattern opacity-[0.12]"
-                aria-hidden
-              />
-              <div
-                className="pointer-events-none absolute -right-20 top-1/2 h-56 w-56 -translate-y-1/2 rounded-full bg-brand-accent/[0.07] blur-3xl"
-                aria-hidden
-              />
-              <div className="relative border-l-2 border-brand-accent pl-6 sm:pl-8">
-                <p className="font-display text-lg font-semibold leading-snug tracking-tight text-white sm:text-xl">
-                  The goal is not to add{" "}
-                  <span className="text-brand-accent">AI as a feature</span>.
-                </p>
-                <p className="mt-6 text-base leading-relaxed text-zinc-400 sm:text-lg">
-                  The goal is to design an AI product as a{" "}
-                  <span className="font-medium text-zinc-100">real system</span> — with architecture that
-                  can be{" "}
-                  <span className="text-zinc-300">
-                    controlled, improved, scaled, and owned
-                  </span>
-                  .
-                </p>
-                <p className="mt-8 border-t border-white/10 pt-8 font-display text-lg font-semibold leading-snug text-white sm:text-xl">
-                  That is the difference between a <span className="text-zinc-500">demo</span> and a{" "}
-                  <span className="text-brand-accent">product</span>.
-                </p>
-              </div>
+          <aside className="mt-16 w-full sm:mt-20">
+            <div className="rounded-2xl border border-brand-accent/25 bg-gradient-to-br from-brand-surface/40 to-brand-bg p-8 shadow-[0_0_80px_rgba(3,98,76,0.12)] sm:p-10">
+              <p className="font-display text-lg font-semibold leading-snug tracking-tight text-white sm:text-xl">
+                The goal is not to add <span className="text-brand-accent">AI as a feature</span>.
+              </p>
+              <p className="mt-6 text-base leading-relaxed text-zinc-400 sm:text-lg">
+                The goal is to design an AI product as a{" "}
+                <span className="font-medium text-zinc-100">real system</span> — with architecture that can
+                be{" "}
+                <span className="text-zinc-300">controlled, improved, scaled, and owned</span>.
+              </p>
+              <p className="mt-8 border-t border-white/10 pt-8 font-display text-lg font-semibold leading-snug text-white sm:text-xl">
+                That is the difference between a <span className="text-zinc-500">demo</span> and a{" "}
+                <span className="text-brand-accent">product</span>.
+              </p>
             </div>
           </aside>
         </Reveal>
