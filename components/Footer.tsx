@@ -40,10 +40,6 @@ export function Footer() {
               {site.email}
             </a>
           </p>
-          <p className="mt-4 flex gap-4 text-xs text-zinc-600">
-            <span>LinkedIn (placeholder)</span>
-            <span>X (placeholder)</span>
-          </p>
         </div>
       </div>
     </footer>
