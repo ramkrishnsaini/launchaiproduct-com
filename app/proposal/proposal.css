@@ -296,6 +296,10 @@
   @apply mb-7 text-[14px] text-[#767676];
 }
 
+.proposal-page .impact-line {
+  @apply mt-5 mb-7 rounded-r-[10px] border-l-4 border-l-[#C8952A] bg-[#FDF5E6] px-5 py-4 font-display text-[16px] leading-[1.5] text-[#7A5A10];
+}
+
 .proposal-page .cta {
   @apply border-b-0 py-16;
   background: var(--ink);

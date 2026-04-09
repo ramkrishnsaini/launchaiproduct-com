@@ -411,11 +411,17 @@ export default function ProposalPage() {
         <div className="container">
           <span className="label">Investment</span>
           <p className="price-hero">
-            $800
+            $900
             <span className="text-[0.4em] font-normal text-[#767676]">.00 USD</span>
           </p>
           <p className="price-sub">Fixed price. Full payment upfront. 7-day delivery.</p>
 
+          <div className="invest-block">
+            <p className="invest-title">This covers the full 7-day Phase 1 AI Product Discovery Sprint.            </p>
+            <p className="invest-desc">
+              You receive 3 researched product concepts, market validation, earning potential direction, MVP scope, and architecture guidance so you can move forward with clarity before investing in build or marketing.
+            </p>
+          </div>
           <div className="invest-block">
             <p className="invest-title">Full payment upfront</p>
             <p className="invest-desc">
@@ -423,13 +429,11 @@ export default function ProposalPage() {
               no hidden charges.
             </p>
           </div>
-          <div className="invest-block">
-            <p className="invest-title">Fixed price. Fixed scope.</p>
-            <p className="invest-desc">
-              Agreed deliverables, 7-day delivery. No additions and no unexpected charges after
-              payment.
-            </p>
-          </div>
+          <p className="impact-line">
+            Most people do not fail because they cannot build. They fail because they build the
+            wrong product. This sprint helps prevent that mistake before time and money are lost.
+          </p>
+
         </div>
       </section>
 
