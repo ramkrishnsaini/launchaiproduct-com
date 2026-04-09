@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Product Discovery Sprint — LaunchAIProduct.com</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:        #0D1B2A;
+    --teal-dark:  #0A5C46;
+    --teal:       #0F7A5A;
+    --teal-med:   #12A070;
+    --teal-light: #D6F0E8;
+    --teal-pale:  #EEF9F5;
+    --gold:       #C8952A;
+    --gold-light: #FDF5E6;
+    --white:      #FFFFFF;
+    --off-white:  #F8F9FA;
+    --gray-90:    #1C1C1E;
+    --gray-60:    #4A4A4A;
+    --gray-40:    #767676;
+    --gray-10:    #F2F2F2;
+    --red-soft:   #FBF0F0;
+    --red:        #B91C1C;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--gray-60);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── TYPOGRAPHY ─────────────────────────────── */
+  .display { font-family: 'Sora', sans-serif; font-weight: 700; }
+  .label {
+    font-family: 'Sora', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border-top: 2.5px solid var(--gold);
+    padding-top: 10px;
+    display: block;
+    margin-bottom: 14px;
+  }
+  h1.page-title {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: clamp(22px, 4vw, 30px);
+    color: var(--gray-90);
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+  p { margin-bottom: 14px; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── LAYOUT ─────────────────────────────────── */
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  section {
+    padding: 64px 0;
+    border-bottom: 1px solid #E8E8E8;
+  }
+  section:last-of-type { border-bottom: none; }
+
+  /* ── COVER ──────────────────────────────────── */
+  .cover {
+    background: var(--ink);
+    padding: 0;
+    border-bottom: none;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(18,160,112,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cover-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 72px 24px 0;
+  }
+  .brand-line {
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--teal-med);
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .brand-sub {
+    font-size: 13px;
+    color: #3A5A52;
+    margin-bottom: 72px;
+  }
+  .cover-title {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: clamp(42px, 10vw, 68px);
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .cover-title-accent {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: clamp(42px, 10vw, 68px);
+    line-height: 1.05;
+    color: var(--teal-med);
+    display: block;
+    margin-bottom: 20px;
+  }
+  .cover-sub {
+    font-size: 16px;
+    color: #5A7A70;
+    margin-bottom: 64px;
+  }
+  .cover-meta {
+    border-top: 1px solid #1E3A32;
+    padding: 24px 0 0;
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  .meta-item { font-size: 14px; }
+  .meta-label { color: #4A6A60; display: block; margin-bottom: 2px; font-size: 12px; }
+  .meta-value { color: #9ACFC4; font-family: 'Sora', sans-serif; font-weight: 600; }
+  .cover-stripe {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 40px;
+  }
+  .stripe-item {
+    padding: 14px 24px;
+    font-family: 'Sora', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .stripe-1 { background: var(--teal-dark); color: #A8DFD0; }
+  .stripe-2 { background: var(--teal); color: var(--white); text-align: center; }
+  .stripe-3 { background: var(--teal-med); color: var(--white); text-align: right; }
+
+  /* ── CALLOUT ────────────────────────────────── */
+  .callout {
+    border-left: 4px solid var(--teal-med);
+    background: var(--teal-pale);
+    padding: 18px 20px;
+    border-radius: 0 8px 8px 0;
+    font-size: 15px;
+    color: var(--teal-dark);
+    margin-top: 24px;
+  }
+  .callout-warn {
+    border-left: 4px solid var(--gold);
+    background: var(--gold-light);
+    padding: 18px 20px;
+    border-radius: 0 8px 8px 0;
+    font-size: 15px;
+    color: #7A5A10;
+    margin-top: 24px;
+  }
+
+  /* ── WHO ROWS ───────────────────────────────── */
+  .who-row {
+    border-left: 3px solid var(--teal-med);
+    padding: 16px 18px;
+    margin-bottom: 6px;
+    font-size: 15px;
+    color: var(--gray-60);
+    transition: background 0.2s;
+  }
+  .who-row:nth-child(odd)  { background: var(--white); }
+  .who-row:nth-child(even) { background: var(--off-white); }
+
+  /* ── DELIVERABLE ROWS ───────────────────────── */
+  .del-row {
+    display: flex;
+    gap: 0;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #E8E8E8;
+  }
+  .del-num {
+    background: var(--teal-dark);
+    color: var(--white);
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    min-width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .del-body {
+    padding: 18px 20px;
+    flex: 1;
+  }
+  .del-row:nth-child(even) .del-body { background: var(--off-white); }
+  .del-title {
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--gray-90);
+    margin-bottom: 6px;
+  }
+  .del-summary {
+    font-size: 14px;
+    color: var(--teal-dark);
+    font-style: italic;
+    margin-bottom: 8px;
+  }
+  .del-detail {
+    font-size: 14px;
+    color: var(--gray-60);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ── DAY ROWS ───────────────────────────────── */
+  .day-row {
+    border-left: 3px solid var(--gold);
+    padding: 16px 18px;
+    margin-bottom: 6px;
+  }
+  .day-row:nth-child(odd)  { background: var(--teal-pale); }
+  .day-row:nth-child(even) { background: var(--white); }
+  .day-label {
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--teal-dark);
+    margin-bottom: 4px;
+  }
+  .day-desc { font-size: 14px; color: var(--gray-60); margin: 0; }
+
+  /* ── NOT INCLUDED ───────────────────────────── */
+  .not-row {
+    display: flex;
+    gap: 0;
+    margin-bottom: 5px;
+  }
+  .not-badge {
+    background: var(--red);
+    color: var(--white);
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .not-text {
+    background: var(--red-soft);
+    border-bottom: 1px solid #F0D0D0;
+    padding: 12px 16px;
+    font-size: 14px;
+    color: var(--red);
+    flex: 1;
+  }
+
+  /* ── PHASE ROWS ─────────────────────────────── */
+  .phase-row {
+    border-left: 3px solid var(--gray-40);
+    padding: 18px 18px;
+    margin-bottom: 6px;
+    background: var(--white);
+    border-bottom: 1px solid #E8E8E8;
+  }
+  .phase-row.current {
+    border-left: 4px solid var(--teal-med);
+    background: var(--teal-pale);
+  }
+  .phase-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .phase-num {
+    font-family: 'Sora', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gray-40);
+    letter-spacing: 0.05em;
+  }
+  .phase-row.current .phase-num { color: var(--teal-dark); }
+  .phase-title {
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--gray-90);
+  }
+  .phase-now {
+    font-size: 11px;
+    color: var(--teal-med);
+    font-style: italic;
+    margin-left: auto;
+    font-family: 'Sora', sans-serif;
+  }
+  .phase-desc { font-size: 14px; color: var(--gray-60); margin: 0; }
+
+  /* ── TERMS ──────────────────────────────────── */
+  .term-row {
+    padding: 14px 0;
+    border-bottom: 1px solid #EBEBEB;
+  }
+  .term-row:nth-child(even) { background: transparent; }
+  .term-label {
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-90);
+    margin-bottom: 3px;
+  }
+  .term-value { font-size: 14px; color: var(--gray-60); margin: 0; }
+
+  /* ── INVESTMENT ─────────────────────────────── */
+  .invest-block {
+    border-left: 3px solid var(--teal-med);
+    background: var(--teal-pale);
+    padding: 20px 22px;
+    margin-bottom: 10px;
+    border-radius: 0 8px 8px 0;
+  }
+  .invest-title {
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--teal-dark);
+    margin-bottom: 6px;
+  }
+  .invest-desc { font-size: 14px; color: var(--gray-60); margin: 0; }
+
+  /* ── PRICE HERO ─────────────────────────────── */
+  .price-hero {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(36px, 8vw, 52px);
+    font-weight: 700;
+    color: var(--gray-90);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .price-sub {
+    font-size: 14px;
+    color: var(--gray-40);
+    margin-bottom: 28px;
+  }
+
+  /* ── CTA FOOTER ─────────────────────────────── */
+  .cta {
+    background: var(--ink);
+    padding: 64px 0;
+    border-bottom: none;
+  }
+  .cta .container { text-align: center; }
+  .cta-title {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(24px, 5vw, 36px);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 14px;
+  }
+  .cta-sub {
+    font-size: 15px;
+    color: #7A9990;
+    margin-bottom: 28px;
+  }
+  .cta-link {
+    display: inline-block;
+    font-family: 'Sora', sans-serif;
+    font-size: 14px;
+    color: var(--teal-med);
+    text-decoration: none;
+    border-bottom: 1px solid var(--teal-dark);
+    padding-bottom: 2px;
+    margin: 0 8px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .cta-link:hover { color: var(--white); border-color: var(--white); }
+
+  /* ── SECTION DIVIDER ────────────────────────── */
+  .section-gap { padding: 56px 0; }
+
+  /* ── ANIMATIONS ─────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp 0.7s ease both; }
+  .fade-up-1 { animation-delay: 0.1s; }
+  .fade-up-2 { animation-delay: 0.22s; }
+  .fade-up-3 { animation-delay: 0.34s; }
+  .fade-up-4 { animation-delay: 0.46s; }
+
+  /* ── RESPONSIVE ─────────────────────────────── */
+  @media (max-width: 480px) {
+    .cover-stripe { grid-template-columns: 1fr; }
+    .stripe-2, .stripe-3 { text-align: left; }
+    .cover-meta { gap: 20px; }
+  }
+
+  /* ── PRINT / PDF ────────────────────────────── */
+  @media print {
+    .cover::before { display: none; }
+    section { page-break-inside: avoid; }
+    .del-row, .day-row, .not-row, .phase-row, .term-row { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ COVER ═══════════════════════════════════════ -->
+<section class="cover">
+  <div class="cover-inner">
+    <span class="brand-line fade-up fade-up-1">LaunchAIProduct.com</span>
+    <p class="brand-sub fade-up fade-up-2">AI Product Strategy &nbsp;•&nbsp; Build &nbsp;•&nbsp; Launch</p>
+
+    <span class="cover-title fade-up fade-up-2">AI Product</span>
+    <span class="cover-title-accent fade-up fade-up-3">Discovery Sprint</span>
+    <p class="cover-sub fade-up fade-up-4">Phase 1 &mdash; Project Proposal</p>
+
+    <div class="cover-meta fade-up fade-up-4">
+      <div class="meta-item">
+        <span class="meta-label">Prepared for</span>
+        <span class="meta-value">[Client Name]</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Date</span>
+        <span class="meta-value">[Date]</span>
+      </div>
+    </div>
+  </div>
+  <div class="cover-stripe">
+    <div class="stripe-item stripe-1">Strategy &amp; Direction</div>
+    <div class="stripe-item stripe-2">7 Days &nbsp;•&nbsp; Fixed Price</div>
+    <div class="stripe-item stripe-3">No Code. No Build.</div>
+  </div>
+</section>
+
+<!-- ══ WHO THIS IS FOR ═══════════════════════════════ -->
+<section>
+  <div class="container">
+    <span class="label">Who this is for</span>
+    <h1 class="page-title">Built for developers and tech professionals ready to become founders.</h1>
+    <p style="font-size:15px;">You have built real systems and have the technical depth to execute. What you are missing is a clear, validated product direction — what to build, whether people will pay for it, and how to start.</p>
+
+    <div style="margin-top: 28px;">
+      <div class="who-row">You are a developer or tech professional with 5+ years of real-world experience</div>
+      <div class="who-row">You want to build and launch your own AI product — not just explore the idea</div>
+      <div class="who-row">You have motivation and skills but no clear product idea to commit to yet</div>
+      <div class="who-row">You want confirmation there is a real paying market before investing months of time</div>
+      <div class="who-row">You are ready to take a structured first step with expert guidance</div>
+    </div>
+
+    <div class="callout">
+      This is for people who have decided they want to build — and now need the right direction.
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHAT YOU GET ══════════════════════════════════ -->
+<section>
+  <div class="container">
+    <span class="label">What you get — 6 deliverables</span>
+    <h1 class="page-title">A complete product direction document in 7 days.</h1>
+    <p style="font-size:15px;">Strategy and planning only. No code is written, no product is built. Building the actual product is Phase 2.</p>
+
+    <div style="margin-top: 28px;">
+
+      <div class="del-row">
+        <div class="del-num">1</div>
+        <div class="del-body">
+          <p class="del-title">AI Idea Bank — 3 Product Concepts</p>
+          <p class="del-summary">Three distinct AI product opportunities, each researched and evaluated in depth.</p>
+          <p class="del-detail">Covers: the problem each solves, who pays for it, how AI fits in, what makes it defensible, and why now is the right time to build it. Ideas are based on market opportunity — not limited to your existing domain.</p>
+        </div>
+      </div>
+
+      <div class="del-row">
+        <div class="del-num">2</div>
+        <div class="del-body">
+          <p class="del-title">Market Validation</p>
+          <p class="del-summary">Is there a real paying market — before you commit any build time?</p>
+          <p class="del-detail">For each concept: who the buyers are, rough market size, what comparable products charge today, and whether the timing is right. Prevents you from building something nobody pays for.</p>
+        </div>
+      </div>
+
+      <div class="del-row">
+        <div class="del-num">3</div>
+        <div class="del-body">
+          <p class="del-title">Earning Potential Estimate</p>
+          <p class="del-summary">What could this product realistically earn in Year 1 and at scale?</p>
+          <p class="del-detail">A grounded revenue range based on comparable products and standard pricing models. Directional — not a financial forecast. Gives you a concrete reference point to decide how much to invest.</p>
+        </div>
+      </div>
+
+      <div class="del-row">
+        <div class="del-num">4</div>
+        <div class="del-body">
+          <p class="del-title">Basic Go-To-Market Angle</p>
+          <p class="del-summary">Who to sell to first and which channel gives the best chance of early traction.</p>
+          <p class="del-detail">Covers: the right early customer, the best starting acquisition channel, and how to position the product so it stands out immediately. Full marketing execution is Phase 3 — this is the strategic foundation it builds on.</p>
+        </div>
+      </div>
+
+      <div class="del-row">
+        <div class="del-num">5</div>
+        <div class="del-body">
+          <p class="del-title">MVP Scope Definition</p>
+          <p class="del-summary">Exactly what to build in Version 1 — and what to deliberately leave out.</p>
+          <p class="del-detail">The features that must exist for a paying customer, what to defer to Version 2, the core user flow, and the scope boundary that prevents Phase 2 from expanding indefinitely. This becomes the direct input for the Phase 2 proposal.</p>
+        </div>
+      </div>
+
+      <div class="del-row">
+        <div class="del-num">6</div>
+        <div class="del-body">
+          <p class="del-title">High-Level Architecture Direction</p>
+          <p class="del-summary">The technical shape of the product — enough to begin Phase 2 without a blank page.</p>
+          <p class="del-detail">Core system components, where AI fits and what role it plays, whether open-source or managed APIs make sense, key integrations, and the infrastructure approach. The architectural direction document Phase 2 development starts from.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="callout-warn" style="margin-top:28px;">
+      <strong>Important:</strong> Phase 1 is entirely strategy. No code is written, no POC is built, no infrastructure is set up. Building the actual product is Phase 2 — scoped and priced separately after this phase is complete.
+    </div>
+  </div>
+</section>
+
+<!-- ══ HOW IT WORKS ══════════════════════════════════ -->
+<section>
+  <div class="container">
+    <span class="label">How it works</span>
+    <h1 class="page-title">Seven days. Structured. Async.</h1>
+    <p style="font-size:15px;">Everything runs through voice and messaging — no lengthy calls, no scheduling overhead. You respond on your schedule.</p>
+
+    <div style="margin-top: 28px;">
+      <div class="day-row">
+        <p class="day-label">Day 1 &mdash; Discovery</p>
+        <p class="day-desc">You share your goals, available time, constraints, and areas of interest. The more specific your input, the more targeted the output. This is the most important step.</p>
+      </div>
+      <div class="day-row">
+        <p class="day-label">Day 2–3 &mdash; Research</p>
+        <p class="day-desc">Three product concepts are researched from current AI market opportunities and evaluated across demand, revenue potential, AI fit, and build path.</p>
+      </div>
+      <div class="day-row">
+        <p class="day-label">Day 4 &mdash; Concept Review</p>
+        <p class="day-desc">A short voice call to walk through all three concepts. You share your reaction and together we shortlist the strongest one to develop fully.</p>
+      </div>
+      <div class="day-row">
+        <p class="day-label">Day 5–6 &mdash; Deep Dive</p>
+        <p class="day-desc">The winning concept is fully developed — market validation, earning potential, go-to-market angle, MVP scope, and architecture direction.</p>
+      </div>
+      <div class="day-row">
+        <p class="day-label">Day 7 &mdash; Final Delivery</p>
+        <p class="day-desc">Everything is packaged into a clean structured document and delivered to you. A Phase 2 proposal scoped to your MVP is delivered alongside it.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      Your input on Day 1 and feedback on Day 4 are all that is required from you. Everything else is on our side.
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHAT IS NOT INCLUDED ══════════════════════════ -->
+<section>
+  <div class="container">
+    <span class="label">Scope clarity — what Phase 1 does not include</span>
+    <h1 class="page-title">This phase is strategy only. The build starts in Phase 2.</h1>
+    <p style="font-size:15px; margin-bottom:24px;">Stated clearly so there are no mismatched expectations on either side.</p>
+
+    <div>
+      <div class="not-row">
+        <div class="not-badge">NO</div>
+        <div class="not-text">Writing any code or software development of any kind</div>
+      </div>
+      <div class="not-row">
+        <div class="not-badge">NO</div>
+        <div class="not-text">Building a POC, prototype, or working product — that is Phase 2</div>
+      </div>
+      <div class="not-row">
+        <div class="not-badge">NO</div>
+        <div class="not-text">Setting up any infrastructure, cloud environments, or deployment</div>
+      </div>
+      <div class="not-row">
+        <div class="not-badge">NO</div>
+        <div class="not-text">Executing any marketing or outreach campaigns — that is Phase 3</div>
+      </div>
+      <div class="not-row">
+        <div class="not-badge">NO</div>
+        <div class="not-text">Technical implementation of any AI model, API, or integration</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:20px;">
+      Phase 1 delivers one outcome: what to build, who will pay for it, and how to start. Building begins in Phase 2.
+    </div>
+  </div>
+</section>
+
+<!-- ══ 3 PHASES ══════════════════════════════════════ -->
+<section>
+  <div class="container">
+    <span class="label">The full journey — 3 phases</span>
+    <h1 class="page-title">From idea to product to market.</h1>
+    <p style="font-size:15px; margin-bottom:28px;">This proposal covers Phase 1 only. Phase 2 and Phase 3 are scoped separately — their cost depends on the product and the target market, both defined in Phase 1.</p>
+
+    <div class="phase-row current">
+      <div class="phase-header">
+        <span class="phase-num">PHASE 1</span>
+        <span class="phase-title">AI Product Discovery Sprint</span>
+        <span class="phase-now">← This proposal</span>
+      </div>
+      <p class="phase-desc">Strategy, validation, market analysis, earning potential, MVP scope, architecture direction. No code, no build of any kind.</p>
+    </div>
+
+    <div class="phase-row">
+      <div class="phase-header">
+        <span class="phase-num">PHASE 2</span>
+        <span class="phase-title">Product Build — POC &amp; Working Product</span>
+      </div>
+      <p class="phase-desc">Our team builds the actual product — from POC to a shippable version ready for real users. Scoped and priced after Phase 1 delivery.</p>
+    </div>
+
+    <div class="phase-row">
+      <div class="phase-header">
+        <span class="phase-num">PHASE 3</span>
+        <span class="phase-title">Marketing &amp; Growth — Acquiring Customers</span>
+      </div>
+      <p class="phase-desc">Hands-on execution: campaigns, content, outreach, and customer acquisition. Scoped and priced after Phase 2 delivery.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TERMS ══════════════════════════════════════════ -->
+<section>
+  <div class="container">
+    <span class="label">Terms of engagement</span>
+    <h1 class="page-title">Simple, transparent, and fair.</h1>
+
+    <div style="margin-top: 28px;">
+      <div class="term-row">
+        <p class="term-label">Engagement type</p>
+        <p class="term-value">Fixed-cost, fixed-scope. Deliverables agreed upfront. No additions, no surprises.</p>
+      </div>
+      <div class="term-row">
+        <p class="term-label">Timeline</p>
+        <p class="term-value">7 days from confirmation of payment and receipt of Day 1 discovery intake.</p>
+      </div>
+      <div class="term-row">
+        <p class="term-label">What is delivered</p>
+        <p class="term-value">One strategy document. No code, no prototype, no build of any kind.</p>
+      </div>
+      <div class="term-row">
+        <p class="term-label">Client responsibility</p>
+        <p class="term-value">Timely input on Day 1 and concept feedback on Day 4. Client delays extend the timeline accordingly.</p>
+      </div>
+      <div class="term-row">
+        <p class="term-label">Confidentiality</p>
+        <p class="term-value">All information shared is strictly confidential and not used outside this engagement.</p>
+      </div>
+      <div class="term-row">
+        <p class="term-label">Ownership</p>
+        <p class="term-value">All deliverables belong entirely to the client upon completion.</p>
+      </div>
+      <div class="term-row">
+        <p class="term-label">Phase 2</p>
+        <p class="term-value">A Phase 2 proposal is prepared alongside delivery. No obligation to continue.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ INVESTMENT ═════════════════════════════════════ -->
+<section>
+  <div class="container">
+    <span class="label">Investment</span>
+    <p class="price-hero">$800<span style="font-size:0.4em; color:var(--gray-40); font-weight:400;">.00 USD</span></p>
+    <p class="price-sub">Fixed price. Full payment upfront. 7-day delivery.</p>
+
+    <div class="invest-block">
+      <p class="invest-title">Full payment upfront</p>
+      <p class="invest-desc">Work begins the moment payment is confirmed. No partial payments, no staged billing, no hidden charges.</p>
+    </div>
+    <div class="invest-block">
+      <p class="invest-title">Fixed price. Fixed scope.</p>
+      <p class="invest-desc">Agreed deliverables, 7-day delivery. No additions and no unexpected charges after payment.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ════════════════════════════════════════════ -->
+<section class="cta">
+  <div class="container">
+    <p class="cta-title">Ready to get started?</p>
+    <p class="cta-sub">Reply to confirm. Payment details follow and work begins within 24 hours.</p>
+    <div>
+      <a href="mailto:hello@launchaiproduct.com" class="cta-link">hello@launchaiproduct.com</a>
+      <a href="https://launchaiproduct.com" class="cta-link" target="_blank">launchaiproduct.com</a>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

@@ -3,8 +3,7 @@ import type { ReactNode } from "react";
 import Script from "next/script";
 import { DM_Sans, Syne } from "next/font/google";
 import "./globals.css";
-import { FloatingWhatsAppButton } from "@/components/FloatingWhatsAppButton";
-import { MobileStickyCta } from "@/components/MobileStickyCta";
+import { RouteAwareFloatingWidgets } from "@/components/RouteAwareFloatingWidgets";
 import { site } from "@/lib/site";
 
 const display = Syne({
@@ -79,8 +78,7 @@ export default function RootLayout({
           />
         </noscript>
         {children}
-        <MobileStickyCta />
-        <FloatingWhatsAppButton />
+        <RouteAwareFloatingWidgets />
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
