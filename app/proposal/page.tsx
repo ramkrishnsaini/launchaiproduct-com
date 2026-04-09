@@ -39,9 +39,23 @@ export default function ProposalPage() {
     <main className="proposal-page">
       <section className="cover">
         <div className="cover-inner">
-          <span className="brand-line fade-up fade-up-1">LaunchAIProduct.com</span>
+          <a
+            href={site.url}
+            target="_blank"
+            rel="noreferrer"
+            className="brand-line brand-link fade-up fade-up-1"
+          >
+            LaunchAIProduct.com
+          </a>
           <p className="brand-sub fade-up fade-up-2">
-            AI Product Strategy &nbsp;•&nbsp; Build &nbsp;•&nbsp; Launch
+            <a
+              href={site.url}
+              target="_blank"
+              rel="noreferrer"
+              className="brand-sub-link"
+            >
+              AI Product Strategy &nbsp;•&nbsp; Build &nbsp;•&nbsp; Launch
+            </a>
           </p>
 
           <span className="cover-title fade-up fade-up-2">AI Product</span>
@@ -98,8 +112,7 @@ export default function ProposalPage() {
           <span className="label">What you get — 6 deliverables</span>
           <h1 className="page-title">A complete product direction document in 7 days.</h1>
           <p className="text-[15px]">
-            Strategy and planning only. No code is written, no product is built. Building the
-            actual product is Phase 2.
+            Everything in this phase is strategy and planning. The building starts in Phase 2.
           </p>
 
           <div className="mt-7">
@@ -112,8 +125,10 @@ export default function ProposalPage() {
                 </p>
                 <p className="del-detail">
                   Covers: the problem each solves, who pays for it, how AI fits in, what makes it
-                  defensible, and why now is the right time to build it. Ideas are based on market
-                  opportunity — not limited to your existing domain.
+                  defensible, and why now is the right time to build it. Ideas are identified from
+                  current market opportunities — not generated from templates or limited to your
+                  existing domain. You get options worth evaluating, not a list to figure out
+                  yourself.
                 </p>
               </div>
             </div>
@@ -121,7 +136,7 @@ export default function ProposalPage() {
             <div className="del-row">
               <div className="del-num">2</div>
               <div className="del-body">
-                <p className="del-title">Market Validation</p>
+                <p className="del-title">Market Validation — Does Anyone Actually Pay for This?</p>
                 <p className="del-summary">
                   Is there a real paying market — before you commit any build time?
                 </p>
@@ -142,8 +157,8 @@ export default function ProposalPage() {
                 </p>
                 <p className="del-detail">
                   A grounded revenue range based on comparable products and standard pricing models.
-                  Directional — not a financial forecast. Gives you a concrete reference point to
-                  decide how much to invest.
+                  Directional — not a financial forecast. Gives you the confidence to commit time
+                  and money to Phase 2, or to rule out a concept before investing anything.
                 </p>
               </div>
             </div>
@@ -151,14 +166,16 @@ export default function ProposalPage() {
             <div className="del-row">
               <div className="del-num">4</div>
               <div className="del-body">
-                <p className="del-title">Basic Go-To-Market Angle</p>
+                <p className="del-title">Go-To-Market Direction</p>
                 <p className="del-summary">
-                  Who to sell to first and which channel gives the best chance of early traction.
+                  Who to sell to first, how to reach them, and how to position the product so it
+                  stands out.
                 </p>
                 <p className="del-detail">
-                  Covers: the right early customer, the best starting acquisition channel, and how
-                  to position the product so it stands out immediately. Full marketing execution is
-                  Phase 3 — this is the strategic foundation it builds on.
+                  Covers: the right early customer profile, the acquisition channel with the
+                  highest chance of landing your first 10 to 50 paying customers, and the
+                  positioning angle that makes the product immediately compelling. Full marketing
+                  execution is Phase 3 — this is the strategic foundation it builds on.
                 </p>
               </div>
             </div>
@@ -173,7 +190,8 @@ export default function ProposalPage() {
                 <p className="del-detail">
                   The features that must exist for a paying customer, what to defer to Version 2,
                   the core user flow, and the scope boundary that prevents Phase 2 from expanding
-                  indefinitely. This becomes the direct input for the Phase 2 proposal.
+                  indefinitely. This becomes the foundation for Phase 2 — the build scope, timeline,
+                  and cost are all derived from the MVP defined here.
                 </p>
               </div>
             </div>
@@ -188,17 +206,19 @@ export default function ProposalPage() {
                 </p>
                 <p className="del-detail">
                   Core system components, where AI fits and what role it plays, whether open-source
-                  or managed APIs make sense, key integrations, and the infrastructure approach. The
-                  architectural direction document Phase 2 development starts from.
+                  or managed APIs make sense, key integrations, and the infrastructure approach.
+                  This is the architectural foundation Phase 2 development starts from — not a full
+                  spec, but enough to begin without wasted rework.
                 </p>
               </div>
             </div>
           </div>
 
           <div className="callout-warn mt-7">
-            <strong>Important:</strong> Phase 1 is entirely strategy. No code is written, no POC is
-            built, no infrastructure is set up. Building the actual product is Phase 2 — scoped and
-            priced separately after this phase is complete.
+            <strong>Important:</strong> Phase 1 produces a strategy document — nothing is built,
+            coded, or deployed. If you are expecting a working product or prototype at the end of
+            this phase, that is Phase 2. Phase 2 is scoped and priced separately after Phase 1 is
+            complete.
           </div>
         </div>
       </section>
@@ -208,30 +228,32 @@ export default function ProposalPage() {
           <span className="label">How it works</span>
           <h1 className="page-title">Seven days. Structured. Async.</h1>
           <p className="text-[15px]">
-            Everything runs through voice and messaging — no lengthy calls, no scheduling overhead.
-            You respond on your schedule.
+            A structured process designed so you never have to figure out what happens next. Each
+            day has a clear purpose — ending with a product direction you can act on immediately.
           </p>
 
           <div className="mt-7">
             <div className="day-row">
               <p className="day-label">Day 1 &mdash; Discovery</p>
               <p className="day-desc">
-                You share your goals, available time, constraints, and areas of interest. The more
-                specific your input, the more targeted the output. This is the most important step.
+                We analyse current market opportunities, emerging AI trends, and real-world
+                problems where AI can create genuine value — identifying the strongest directions
+                worth building into a product.
               </p>
             </div>
             <div className="day-row">
               <p className="day-label">Day 2–3 &mdash; Research</p>
               <p className="day-desc">
                 Three product concepts are researched from current AI market opportunities and
-                evaluated across demand, revenue potential, AI fit, and build path.
+                evaluated across market demand, revenue potential, AI fit, competitive defensibility,
+                and realistic buildability for a working professional.
               </p>
             </div>
             <div className="day-row">
               <p className="day-label">Day 4 &mdash; Concept Review</p>
               <p className="day-desc">
-                A short voice call to walk through all three concepts. You share your reaction and
-                together we shortlist the strongest one to develop fully.
+                All three concepts are walked through with you. Together we evaluate each one and
+                shortlist the strongest concept to develop fully in the next phase.
               </p>
             </div>
             <div className="day-row">
@@ -244,15 +266,11 @@ export default function ProposalPage() {
             <div className="day-row">
               <p className="day-label">Day 7 &mdash; Final Delivery</p>
               <p className="day-desc">
-                Everything is packaged into a clean structured document and delivered to you. A
-                Phase 2 proposal scoped to your MVP is delivered alongside it.
+                Everything is packaged into a clean structured document and delivered to you. This
+                is your complete product direction — the foundation for everything that follows in
+                Phase 2 and Phase 3.
               </p>
             </div>
-          </div>
-
-          <div className="callout">
-            Your input on Day 1 and feedback on Day 4 are all that is required from you. Everything
-            else is on our side.
           </div>
         </div>
       </section>
@@ -363,20 +381,13 @@ export default function ProposalPage() {
             <div className="term-row">
               <p className="term-label">Timeline</p>
               <p className="term-value">
-                7 days from confirmation of payment and receipt of Day 1 discovery intake.
+                7 days from confirmation of payment.
               </p>
             </div>
             <div className="term-row">
               <p className="term-label">What is delivered</p>
               <p className="term-value">
                 One strategy document. No code, no prototype, no build of any kind.
-              </p>
-            </div>
-            <div className="term-row">
-              <p className="term-label">Client responsibility</p>
-              <p className="term-value">
-                Timely input on Day 1 and concept feedback on Day 4. Client delays extend the
-                timeline accordingly.
               </p>
             </div>
             <div className="term-row">
@@ -390,12 +401,6 @@ export default function ProposalPage() {
               <p className="term-label">Ownership</p>
               <p className="term-value">
                 All deliverables belong entirely to the client upon completion.
-              </p>
-            </div>
-            <div className="term-row">
-              <p className="term-label">Phase 2</p>
-              <p className="term-value">
-                A Phase 2 proposal is prepared alongside delivery. No obligation to continue.
               </p>
             </div>
           </div>
@@ -435,15 +440,7 @@ export default function ProposalPage() {
             Reply to confirm. Payment details follow and work begins within 24 hours.
           </p>
           <div>
-            <a href="mailto:hello@launchaiproduct.com" className="cta-link">
-              hello@launchaiproduct.com
-            </a>
-            <a
-              href="https://launchaiproduct.com"
-              className="cta-link"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href={site.url} className="cta-link" target="_blank" rel="noreferrer">
               launchaiproduct.com
             </a>
           </div>

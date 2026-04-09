@@ -75,8 +75,24 @@
   color: var(--teal-med);
 }
 
+.proposal-page .brand-link {
+  @apply no-underline;
+}
+
+.proposal-page .brand-link:hover {
+  color: #9acfc4;
+}
+
 .proposal-page .brand-sub {
   @apply mb-[72px] text-[13px] text-[#3A5A52];
+}
+
+.proposal-page .brand-sub-link {
+  @apply text-[#3A5A52] no-underline;
+}
+
+.proposal-page .brand-sub-link:hover {
+  color: #7a9990;
 }
 
 .proposal-page .cover-title,
